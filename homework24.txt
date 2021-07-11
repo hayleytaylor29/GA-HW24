@@ -1,0 +1,27 @@
+    
+    Create a new database called flights, connect to it, and run the following code:
+        CREATE DATABASE flights
+        \c flights
+    Input routes, airlines, and airports tables and imported data using below commands from CSV files
+    COPY routes FROM '/Users/hayleytaylor/Desktop/routes.csv' DELIMITER ',' CSV;
+    COPY airports FROM '/Users/hayleytaylor/Desktop/airports.csv' DELIMITER ',' CSV;
+    COPY airlines FROM '/Users/hayleytaylor/Desktop/airlines.csv' DELIMITER ',' CSV;
+
+#1. Select airport code for airports LIKE 'John F Kennedy' or 'De Gaulle'.
+    SELECT*FROM airports WHERE iata_faa='JFK' or iata_faa='CDG';
+
+#2. Select all the flights originating from 'JFK' AND going to 'CDG'.
+    SELECT*FROM routes WHERE origin_code='JFK' and dest_code='CDG';
+
+#3. Find out the NUMBER of airports in Canada.
+    SELECT COUNT(*)
+    FROM airports
+    WHERE country='Canada';
+
+#4. Select airport names IN the following countries- Algeria, Ghana, Ethiopia, order by country.
+    SELECT*FROM airports WHERE country='Algeria' or country='Ghana' or country='Ethiopia' ORDER BY country ASC;
+
+#5. Select all the airports that airlines 'Germania' flies from.
+    callsign='Germania' iaco='GMI' iata_faa='GMI'
+        SELECT iaco FROM airlines WHERE callsign='GERMANIA';
+        SELECT*FROM airports WHERE iata_faa='GMI';
