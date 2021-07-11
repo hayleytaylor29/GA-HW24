@@ -1,4 +1,4 @@
-    
+Homework24
     Create a new database called flights, connect to it, and run the following code:
         CREATE DATABASE flights
         \c flights
